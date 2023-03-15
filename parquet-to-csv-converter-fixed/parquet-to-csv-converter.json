@@ -1,0 +1,29 @@
+{
+  "Name" : "parquet-to-csv-converter",
+  "Description" : "",
+  "Role" : "arn:aws:iam::582382890888:role/glue-tutor",
+  "ExecutionProperty" : {
+    "MaxConcurrentRuns" : 1
+  },
+  "Command" : {
+    "Name" : "glueetl",
+    "ScriptLocation" : "s3://aws-glue-assets-582382890888-us-east-1/scripts/parquet-to-csv-converter.py",
+    "PythonVersion" : "3"
+  },
+  "DefaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-582382890888-us-east-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-582382890888-us-east-1/temporary/"
+  },
+  "MaxRetries" : 0,
+  "Timeout" : 2880,
+  "WorkerType": "Standard",
+  "GlueVersion" : "3.0",
+  "NumberOfWorkers" : 10
+}
